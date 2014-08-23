@@ -53,7 +53,7 @@
 - (void)next {
     _answer = 0;
     
-    if (_level < 10) {
+    if (_level < 5) {
         for (int i = 0; i < _level + 1; i++) {
             [self performSelector:@selector(generateNum) withObject:self afterDelay:i+1];
             [self performSelector:@selector(setVisibleFalse) withObject:self afterDelay:i+1.5];
@@ -62,13 +62,53 @@
                 [self performSelector:@selector(enableButtons) withObject:self afterDelay:i+2];
             }
         }
-    } else {
+    } else if (_level >= 5 && _level < 10) {
         for (int i = 0; i < _level + 1; i++) {
             [self performSelector:@selector(generateNum) withObject:self afterDelay:i+1];
             [self performSelector:@selector(setVisibleFalse) withObject:self afterDelay:i+1.3];
             
             if (i == _level) {
                 [self performSelector:@selector(enableButtons) withObject:self afterDelay:i+1.8];
+            }
+        }
+    } else if (_level >= 10 && _level < 15) {
+        for (int i = 0; i < _level + 1; i++) {
+            float x = i * 0.75;
+            [self performSelector:@selector(generateNum) withObject:self afterDelay:x+1];
+            [self performSelector:@selector(setVisibleFalse) withObject:self afterDelay:x+1.3];
+            
+            if (i == _level) {
+                [self performSelector:@selector(enableButtons) withObject:self afterDelay:x+1.8];
+            }
+        }
+    } else if (_level >= 15 && _level < 20) {
+        for (int i = 0; i < _level + 1; i++) {
+            float x = i * 0.6;
+            [self performSelector:@selector(generateNum) withObject:self afterDelay:x+1];
+            [self performSelector:@selector(setVisibleFalse) withObject:self afterDelay:x+1.3];
+            
+            if (i == _level) {
+                [self performSelector:@selector(enableButtons) withObject:self afterDelay:x+1.8];
+            }
+        }
+    } else if (_level >= 20 && _level < 25) {
+        for (int i = 0; i < _level + 1; i++) {
+            float x = i * 0.45;
+            [self performSelector:@selector(generateNum) withObject:self afterDelay:x+1];
+            [self performSelector:@selector(setVisibleFalse) withObject:self afterDelay:x+1.225];
+            
+            if (i == _level) {
+                [self performSelector:@selector(enableButtons) withObject:self afterDelay:x+1.725];
+            }
+        }
+    } else if (_level >= 25) {
+        for (int i = 0; i < _level + 1; i++) {
+            float x = i * 0.35;
+            [self performSelector:@selector(generateNum) withObject:self afterDelay:x+1];
+            [self performSelector:@selector(setVisibleFalse) withObject:self afterDelay:x+1.175];
+            
+            if (i == _level) {
+                [self performSelector:@selector(enableButtons) withObject:self afterDelay:x+1.675];
             }
         }
     }
