@@ -34,7 +34,7 @@
     CCSprite *_lifeOne;
     CCSprite *_lifeTwo;
     
-    float _difficulty;
+    CCLabelTTF *_difficultyLabel;
 }
 
 - (void)onEnter {
@@ -190,7 +190,19 @@
 - (void)addAndMoveLabel {
     _level++;
     _levelLabel.string = [NSString stringWithFormat:@"%i",_level];
-    if (_level > 10) {
+    if (_level == 5) {
+        _difficultyLabel.string = @"2";
+    } else if (_level == 10) {
+        _difficultyLabel.string = @"3";
+        _levelLabel.position = ccp(_levelLabel.position.x+0.02,_levelLabel.position.y);
+    } else if (_level == 15) {
+        _difficultyLabel.string = @"4";
+        _levelLabel.position = ccp(_levelLabel.position.x+0.02,_levelLabel.position.y);
+    } else if (_level == 20) {
+        _difficultyLabel.string = @"5";
+        _levelLabel.position = ccp(_levelLabel.position.x+0.02,_levelLabel.position.y);
+    } else if (_level == 25) {
+        _difficultyLabel.string = @"6";
         _levelLabel.position = ccp(_levelLabel.position.x+0.02,_levelLabel.position.y);
     }
 }
